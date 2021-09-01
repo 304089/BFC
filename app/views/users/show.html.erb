@@ -10,4 +10,9 @@
       <%= @user.introduction %>
     </p>
   </div>
+  <%=link_to edit_user_path(@user.id) do %>
+    <div class="edit-icon">
+      <i class="fas fa-cog"></i>
+    </div>
+  <% end %>
 </div>
