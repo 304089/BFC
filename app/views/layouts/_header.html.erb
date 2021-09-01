@@ -1,0 +1,17 @@
+<div class="header">
+  <nav class="header-nav">
+    <% if user_signed_in? %>
+      <ul>
+        <li><%= image_tag "horizontal_on_white_by_logaster.png",class: "header-logo"%></li>
+        <li class="nav"><%= link_to "マイページ",user_path(current_user) %></li>
+        <li><%= link_to "ログアウト",destroy_user_session_path,method: :delete %></li>
+      </ul>
+    <% else %>
+      <ul>
+        <li><%= image_tag "horizontal_on_white_by_logaster.png",class: "header-logo"%></li>
+        <li class="nav"><%= link_to "会員登録",new_user_registration_path %></li>
+        <li><%= link_to "ログイン",new_user_session_path %></li>
+      </ul>
+    <% end %>
+  </nav>
+</div>

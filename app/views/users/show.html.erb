@@ -1,0 +1,13 @@
+<div class="main">
+  <div class="profile-area">
+    <div class="author-profile_image">
+      <%= attachment_image_tag @user, :profile_image,format: 'jpeg', fallback: "no-image-icon.jpg",size: "110x110" %>
+    </div>
+    <h3 class="user-name">
+      <%= @user.name%>
+    </h3>
+    <p class="user-introduction">
+      <%= @user.introduction %>
+    </p>
+  </div>
+</div>
