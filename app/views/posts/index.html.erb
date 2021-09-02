@@ -1,0 +1,13 @@
+<h1>投稿一覧</h1>
+<% @posts.each do |post| %>
+  <%= attachment_image_tag post,:post_image,size: "100x100" %>
+  <%= attachment_image_tag post.user,:profile_image,size: "50x50" %>
+  <h3>投稿ユーザー</h3>
+  <%= post.user.name %>
+  <%= post.caption %>
+  <% if post.user == current_user %>
+    <%= link_to "投稿編集",edit_post_path(post.id) %>
+    <%= link_to "投稿削除",post_path(post.id),method: :delete %>
+  <% end %>
+<% end %>
+
