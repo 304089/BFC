@@ -1,0 +1,18 @@
+<h3>コメント</h3>
+  <% @post.post_comments.each do |post_comment|%>
+    <%= post_comment.comment %>
+    <p>コメントユーザー</p>
+    <%= attachment_image_tag post_comment.user,:profile_image,size: "20x20" %>
+    <%= post_comment.user.name %>
+    <% if post_comment.user == current_user %>
+      <%= link_to "削除",post_post_comment_path(),method: :delete %>
+    <% end %>
+
+  <% end %>
+
+
+<h4>コメントフォーム</h4>
+<%= form_with(model:[@post,@post_comment],local:true) do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.submit "コメント送信"%>
+  <% end %>

@@ -5,9 +5,15 @@
   <h3>投稿ユーザー</h3>
   <%= post.user.name %>
   <%= post.caption %>
+
   <% if post.user == current_user %>
     <%= link_to "投稿編集",edit_post_path(post.id) %>
     <%= link_to "投稿削除",post_path(post.id),method: :delete %>
   <% end %>
+
+  <%= link_to post_path(post.id) do %>
+    <h4>コメント</h4>
+  <% end %>
+
 <% end %>
 
