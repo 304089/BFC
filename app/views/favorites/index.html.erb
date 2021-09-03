@@ -1,6 +1,7 @@
 <h1>いいねしたユーザー一覧</h1>
 <% @favorites.each do |favorite| %>
   <%= link_to user_path(favorite.user.id) do %>
+    <%= attachment_image_tag favorite.user, :profile_image,size: "20x20" %>
     <%= favorite.user.name %>
   <% end %>
 <% end %>
