@@ -12,8 +12,11 @@
   <% end %>
 
   <%= link_to post_path(post.id) do %>
-    <h4>コメント</h4>
+    <h4>コメントする</h4>
   <% end %>
+  <p>コメント数<%= post.post_comments.count %>件</p>
 
 <% end %>
+
+<%= link_to "新規投稿",new_post_path %>
 

@@ -5,7 +5,7 @@
     <%= attachment_image_tag post_comment.user,:profile_image,size: "20x20" %>
     <%= post_comment.user.name %>
     <% if post_comment.user == current_user %>
-      <%= link_to "削除",post_post_comment_path(),method: :delete %>
+      <%= link_to "削除",post_post_comment_path(@post.id,post_comment.id),method: :delete %>
     <% end %>
 
   <% end %>
@@ -16,3 +16,5 @@
   <%= f.text_area :comment %>
   <%= f.submit "コメント送信"%>
   <% end %>
+
+  <%= link_to "投稿一覧",posts_path %>
