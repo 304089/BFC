@@ -11,6 +11,16 @@
     <%= link_to "投稿削除",post_path(post.id),method: :delete %>
   <% end %>
 
+
+  <h5><%= post.favorites.count %>いいね</h5>
+
+  <% if Favorite.find_by(user_id: current_user.id,post_id: post.id) %>
+    <%= link_to "いいねを取り消す",post_favorite_path(post.id),method: :delete %>
+  <% else %>
+    <%= link_to "いいね",post_favorite_path(post.id),method: :post %>
+  <% end %>
+
+
   <%= link_to post_path(post.id) do %>
     <h4>コメントする</h4>
   <% end %>

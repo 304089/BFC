@@ -8,5 +8,6 @@ class User < ApplicationRecord
 
   has_many :posts,dependent: :destroy
   has_many :post_commnets,dependent: :destroy
+  has_many :favorites,dependent: :destroy
 
 end
