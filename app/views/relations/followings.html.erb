@@ -1,0 +1,5 @@
+<h1>フォロしているユーザー</h1>
+<% @users.each do |user| %>
+  <%= attachment_image_tag user,:profile_image,size: "20x20" %>
+  <%= user.name %>
+<% end %>

@@ -17,4 +17,17 @@
   <% end %>
 </div>
 
+<%= link_to "フォロワー",user_followers_path(@user.id) %>
+<%= link_to "フォロー中",user_followings_path(@user.id) %>
+
+
+<% unless current_user == @user %>
+  <% if Relation.find_by(followed_id: @user.id) %>
+    <%= link_to "フォローをやめる",user_relations_path(@user.id),method: :delete %>
+  <% else %>
+    <%= link_to "フォローする",user_relations_path(@user.id),method: :post %>
+  <% end %>
+<% end %>
+
+
 <%= link_to "新規投稿",new_post_path %>

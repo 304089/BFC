@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root to:  'homes#top'
-  resources :users
+
+
+  resources :users do
+    resource :relations
+    get "followings" => "relations#followings"
+    get "followers" => "relations#followers"
+  end
+
   resources :posts do
     resources :post_comments
     resource :favorite do
