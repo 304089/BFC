@@ -1,0 +1,17 @@
+<h1>グループ</h1>
+<%= attachment_image_tag @group,:icon_image,size: "30x30" %>
+<%= @group.name %>
+<%= @group.caption %>
+
+<h3>メンバー</h3>
+<% @group_users.each do |group_user| %>
+  <%= attachment_image_tag group_user.user,:profile_image,size: "20x20" %>
+  <%= group_user.user.name %>
+<% end %>
+
+<% if GroupUser.find_by(user_id: current_user.id,group_id: @group.id) %>
+  <%= link_to "グループを退会する",out_group_path(@group.id) ,method: :delete %>
+<% else %>
+  <%= link_to "グループに参加する",join_group_path(@group.id),method: :post %>
+<% end %>
+<%= link_to "グループ削除",group_path(@group.id),method: :delete %>

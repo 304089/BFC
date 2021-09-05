@@ -1,0 +1,7 @@
+<h1>グループ作成</h1>
+<%= form_with model: @group,local:true do |f| %>
+  <h3>グループ名</h3>
+  <%= f.text_field :name %>
+  <%= f.text_area :caption %>
+  <%= f.submit "作成" %>
+<% end %>

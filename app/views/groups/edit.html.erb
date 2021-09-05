@@ -1,0 +1,8 @@
+<h1>グループ変更</h1>
+<%= form_with model:@group ,local:true do |f| %>
+  <h3>グループ名</h3>
+  <%= f.text_field :name %>
+  <%= f.text_area :caption %>
+  <%= f.attachment_field :icon_image %>
+  <%= f.submit "変更" %>
+<% end %>
