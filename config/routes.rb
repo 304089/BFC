@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :users do
-    resource :relations
+    resource :relation
     get "followings" => "relations#followings"
     get "followers" => "relations#followers"
   end
@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       post :join
       delete :out
     end
+    resource :group_chat
   end
 
 
