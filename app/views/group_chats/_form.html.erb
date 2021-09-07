@@ -1,0 +1,6 @@
+<%= form_with model: group_chat,url: group_group_chat_path,method: :post,local:true do |f| %>
+  <%= f.text_area :comment %>
+  <%= f.attachment_field :image %>
+
+  <%= f.submit "コメント" %>
+<% end %>

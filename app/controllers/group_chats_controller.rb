@@ -2,6 +2,7 @@ class GroupChatsController < ApplicationController
 
   def new
 
+    @group = Group.find_by(params[:group_id])
     @group_chat = GroupChat.new
     @group_chats = GroupChat.all
 

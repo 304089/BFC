@@ -1,14 +1,18 @@
-<h1>チャットルーム</h1>
+<h1><%= @group.name %>のチャットルーム</h1>
 <% @group_chats.each do |group_chat| %>
-  <%= attachment_image_tag group_chat,:image,size: "50x50" %>
-  <%= attachment_image_tag group_chat.user,:profile_image,size: "20x20" %>
-  <%= group_chat.user.name %>
-  <%= group_chat.comment %>
+  <table>
+    <tr>
+      <td>
+        <%= attachment_image_tag group_chat.user,:profile_image,size: "20x20" %>
+        <%= group_chat.user.name %>
+        <%= attachment_image_tag group_chat,:image,size: "50x50" %>
+        <%= group_chat.comment %>
+      </td>
+    </tr>
+  </table>
 <% end %>
 
-<%= form_with model: @group_chat,url: group_group_chat_path,method: :post,local:true do |f| %>
-  <%= f.text_area :comment %>
-  <%= f.attachment_field :image %>
 
-  <%= f.submit "コメント" %>
-<% end %>
+<div id="chat_area">
+  <%= render "form",group_chat: @group_chat %>
+</div>

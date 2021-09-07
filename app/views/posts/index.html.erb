@@ -18,20 +18,9 @@
     <%= link_to "投稿削除",post_path(post.id),method: :delete %>
   <% end %>
 
-  <%= link_to post_favorite_path(post.id) do %>
-    <h5><%= post.favorites.count %>いいね</h5>
-  <% end %>
-
- <% unless post.user == current_user %>
-
-    <% if Favorite.find_by(user_id: post.user.id,post_id: post.id) %>
-      <%= link_to "いいねを取り消す",post_favorite_path(post.id),method: :delete %>
-    <% else %>
-      <%= link_to "いいね",post_favorite_path(post.id),method: :post %>
-    <% end %>
-
- <% end %>
-
+  <div id= "favorite_btn_<%= post.id %>" >
+    <%= render "favorites/favorite" ,post: post %>
+  </div>
 
   <%= link_to post_path(post.id) do %>
     <h4>コメントする</h4>

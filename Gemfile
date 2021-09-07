@@ -71,3 +71,5 @@ gem "refile-mini_magick"
 gem 'pry-rails'
 
 gem 'ransack'
+
+gem 'jquery-rails'
