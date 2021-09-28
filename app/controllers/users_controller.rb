@@ -10,7 +10,6 @@ class UsersController < ApplicationController
   def create
   end
 
-
   def edit
     @user = User.find(params[:id])
   end
@@ -26,7 +25,6 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to root_path
   end
-
 
   private
 
